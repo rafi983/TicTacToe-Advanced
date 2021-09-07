@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <style></style>
+  </head>
+  <body>
+    <header>
+      <div id="score">
+        <h4 id="score-tag" style="color: chartreuse" class="hide">
+          CURRENT SCORE:
+        </h4>
+        <h4 id="score-0"></h4>
+        <h4 id="score-1"></h4>
+        <h4 id="score-draw"></h4>
+      </div>
+    </header>
+    <h2 id="turn"><span id="turn-tag"></span><span id="turn-player"></span></h2>
+
+    <div id="cell-body">
+      <div class="cell" id="cell1" index="1"></div>
+      <div class="cell" id="cell2" index="2"></div>
+      <div class="cell" id="cell3" index="3"></div>
+      <div class="cell" id="cell4" index="4"></div>
+      <div class="cell" id="cell5" index="5"></div>
+      <div class="cell" id="cell6" index="6"></div>
+      <div class="cell" id="cell7" index="7"></div>
+      <div class="cell" id="cell8" index="8"></div>
+      <div class="cell" id="cell9" index="9"></div>
+    </div>
+
+    <!-- ..................................................
+      .................buttons div here.................  -->
+
+    <div class="buttons">
+      <button id="btn-prev-score" onclick="showPrevScore()">
+        Previous Scores
+      </button>
+      <button id="btn-start" onclick="start()">Start Game</button>
+      <button id="btn-end" class="hide" onclick="endGame()">End Game</button>
+      <button id="btn-reset" class="hide" onclick="playAgain()">
+        Play Again
+      </button>
+      <!-- <button onclick="ShowGameWin()">Game win</button> -->
+    </div>
+
+    <!--..................................................
+  ............................... game win modal  -->
+
+    <div class="modal" id="game-win-modal">
+      <h2 id="winner" style="color: royalblue"></h2>
+      <h2 id="info"></h2>
+
+      <button onclick="closeGameWin()">Close</button>
+    </div>
+
+    <!-- ..............................................................
+  .....................overlay div here .................... -->
+
+    <div class="overlay blur"></div>
+
+    <!--......................................................
+  ....................... input modal here .............
+......................................................... -->
+
+    <div class="modal modal-input">
+      <h3 id="model-info" style="color: red">Enter Player names:</h3>
+      <p>
+        player1:
+        <input
+          type="text"
+          id="player1-name"
+          minlength="2"
+          maxlength="6"
+          required
+          placeholder="maximum 6 character"
+        />
+      </p>
+
+      <p>
+        Player2:
+        <input
+          type="text"
+          id="player2-name"
+          minlength="2"
+          maxlength="6"
+          required
+          placeholder="maximum 6 character"
+        />
+      </p>
+
+      <div class="buttons">
+        <button type="submit" onclick="closeInputModel()">okay</button>
+        <!-- <button type="submit" onclick="closeModel()">cancel</button> -->
+      </div>
+    </div>
+
+    <!--......................................................
+      ............... final result modal here ............... -->
+
+    <div class="modal modal-end">
+      <h2 id="final-winner" style="color: blue"></h3>
+      <h2 style="color: darkgreen;">Result:</h2>
+      <div id="final-result" style="background-color: pink;"></div>
+      <button onclick="closeEndModel()">close</button>
+    </div>
+
+    <!--  .......................................................
+  .......................previous scores modal here ...... -->
+
+    <div class="modal" id="scores-modal">
+      <div style="height: 300px; overflow: scroll; padding: 20px">
+        <h2 style="color: royalblue; border: 1px solid gray">Recent scores</h2>
+        <table id="score-list"></table>
+      </div>
+      <button id="scores-close">close</button>
+    </div>
+
+    <!-- score modal end  -->
+
+    <script src="./js/script.js"></script>
+    <script src="./js/Scoring.js"></script>
+  </body>
+</html>
